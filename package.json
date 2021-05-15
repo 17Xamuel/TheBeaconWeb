@@ -1,0 +1,27 @@
+{
+  "name": "thebeaconweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XamuelUG/TheBeaconWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XamuelUG/TheBeaconWeb/issues"
+  },
+  "homepage": "https://github.com/XamuelUG/TheBeaconWeb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase-admin": "^9.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
