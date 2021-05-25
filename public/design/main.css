@@ -1,0 +1,94 @@
+:root {
+  --main-color: #4671ff;
+  --color-dark: #1d2231;
+  --text-grey: #8390a2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+}
+body {
+  background-color: #f1f5f9;
+}
+
+.input-group {
+  width: 240px;
+  position: relative;
+  margin: 32px 5px;
+  border-bottom: 1px solid var(--color-dark);
+}
+.input-group input {
+  padding: 10px 24px;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  color: var(--text-grey);
+  font-size: 17.5px;
+  outline: none;
+}
+.input-group:hover,
+.input-group:focus-within {
+  border-color: var(--main-color);
+}
+.input-group input:focus,
+.input-group:hover input {
+  color: var(--main-color);
+}
+.input-group label {
+  position: absolute;
+  background-color: transparent;
+  padding: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: var(--color-dark);
+  cursor: text;
+  transition: all 0.3s ease-in-out;
+}
+.input-group:hover label {
+  color: var(--main-color);
+}
+.input-group:focus-within label,
+.input-group input:not(:placeholder-shown) ~ label {
+  padding: 0px;
+  font-size: 13px;
+  top: -15px;
+  left: 10px;
+  bottom: auto;
+  color: var(--text-grey);
+}
+
+/**
+  Buttons
+*/
+
+.btn {
+  padding: 10px 15px;
+  width: 150px;
+  font-size: 16px;
+  background-color: var(--main-color);
+  border-radius: 5px;
+  height: 40px;
+  outline: none;
+  border: none;
+  color: #fff;
+  margin: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.7;
+}
+.btn.btn-sw {
+  width: 75px;
+  height: 30px;
+  padding: 5px;
+  margin: 0px;
+}
+/**
+  Buttons
+*/

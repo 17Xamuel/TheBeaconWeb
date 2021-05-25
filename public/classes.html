@@ -7,16 +7,12 @@
     <title>Hello Beacon Project</title>
 
     <!--styling-->
+    <link rel="stylesheet" href="./design/main.css" />
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     />
-    <link
-      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script src="./scripts/config.js"></script>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
@@ -48,18 +44,6 @@
       }
       ::-webkit-scrollbar-corner {
         background: green;
-      }
-
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        list-style-type: none;
-        text-decoration: none;
-        font-family: "Ubuntu", sans-serif;
-      }
-      body {
-        background-color: #f1f5f9;
       }
       .sideBar-ctr {
         width: 250px;
@@ -210,44 +194,33 @@
         background: #f1f5f9;
         min-height: calc(100vh-90px);
       }
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: 2rem;
-        column-gap: 2rem;
-        /* margin-top: 1rem; */
+      ._qr-ctr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 5px;
+        margin: 5px 0px;
       }
-      .card-single {
+
+      .attendees > div {
+        margin: 15px;
         display: flex;
         justify-content: space-between;
-        padding: 2rem;
+      }
+      #_newClass {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 20px;
         border-radius: 5px;
-        background: #f1f5f9;
-        box-shadow: 6px 6px 9px #dee1e5, -6px -6px 9px #ffffff;
       }
-
-      .card-single div:last-child span {
-        color: var(--main-color);
-        font-size: 3rem;
-      }
-      .card-single div:first-child span {
-        color: var(--text-grey);
-      }
-      .card-single:last-child {
-        background-color: var(--main-color);
-      }
-      .card-single:last-child div:last-child span {
-        color: #fff;
-      }
-      .card-single:last-child div:first-child span {
-        color: #fff;
-      }
-
       .recent-grid {
         margin-top: 2rem;
         display: grid;
         grid-gap: 2rem;
-        grid-template-columns: 50% auto;
+        grid-template-columns: 40% auto;
       }
       .fullwidth-ctr {
         display: grid;
@@ -291,27 +264,6 @@
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
         color: #222;
-      }
-      tr td:last-child {
-        display: flex;
-        align-items: center;
-      }
-
-      td .status {
-        display: inline-block;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        margin-right: 0.5rem;
-      }
-      .status.purple {
-        background-color: rebeccapurple;
-      }
-      .status.pink {
-        background: deeppink;
-      }
-      .status.orange {
-        background: orangered;
       }
 
       @media only screen and (max-width: 1200px) {
@@ -449,13 +401,13 @@
         <div class="sidebar-menu">
           <ul>
             <li>
-              <a href="" class="active">
+              <a href="/">
                 <span class="las la-igloo"></span>
                 <span>Dashboard</span>
               </a>
             </li>
             <li>
-              <a href="./classes">
+              <a href="" class="active">
                 <span class="las la-users"></span>
                 <span>Active Class</span>
               </a>
@@ -488,7 +440,7 @@
           <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
-          Dashboard
+          Classes
         </h2>
         <div class="search-wrapper">
           <span class="las la-search"></span>
@@ -503,274 +455,126 @@
         </div>
       </header>
       <main>
-        <div class="cards">
-          <div class="card-single">
-            <div class="">
-              <h1>54</h1>
-              <span>Patients</span>
-            </div>
-            <div class="">
-              <span class="las la-users"> </span>
-            </div>
-          </div>
-          <div class="card-single">
-            <div class="">
-              <h1>54</h1>
-              <span>Patients</span>
-            </div>
-            <div class="">
-              <span class="las la-users"> </span>
-            </div>
-          </div>
-          <div class="card-single">
-            <div class="">
-              <h1>54</h1>
-              <span>Patients</span>
-            </div>
-            <div class="">
-              <span class="las la-users"> </span>
-            </div>
-          </div>
-          <div class="card-single">
-            <div class="">
-              <h1>54</h1>
-              <span>Patients</span>
-            </div>
-            <div class="">
-              <span class="las la-users"> </span>
-            </div>
-          </div>
-        </div>
         <div class="recent-grid">
           <div class="projects">
             <div class="card">
               <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
+                <h3>Start A Class</h3>
+                <button class="btn btn-sw">
+                  Assign<span class="las la-arrow-right"></span>
                 </button>
               </div>
               <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <form
+                  action=""
+                  id="_newClass"
+                  class="_new_class"
+                  autocomplete="off"
+                >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="course_id"
+                      name="course_id"
+                      placeholder=" "
+                    />
+                    <label for="course_id"> Course Code </label>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="class_duration"
+                      name="class_duration"
+                      placeholder=" "
+                    />
+                    <label for="class_duration"> Class Duration </label>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="class"
+                      name="class"
+                      placeholder=" "
+                    />
+                    <label for="class"> Class</label>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="topic"
+                      name="topic"
+                      placeholder=" "
+                    />
+                    <label for="topic"> Topic </label>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="sub_topic"
+                      name="sub_topic"
+                      placeholder=" "
+                    />
+                    <label for="sub_topic"> Sub Topic </label>
+                  </div>
+                  <div class="btn-ctr">
+                    <button type="submit" class="btn">Start</button>
+                  </div>
+                </form>
+                <div class="_qr-ctr">
+                  <img
+                    src="./resources/airmax.jpg"
+                    alt=""
+                    height="95%"
+                    width="95%"
+                  />
+                </div>
               </div>
             </div>
           </div>
           <div class="projects">
             <div class="card">
               <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
+                <h3>Active Session</h3>
+                <button class="btn btn-sw">
+                  Send QR<span class="las la-arrow-right"></span>
                 </button>
               </div>
               <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="recent-grid">
-          <div class="projects">
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="projects">
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="recent-grid">
-          <div class="projects">
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="projects">
-            <div class="card">
-              <div class="card-header">
-                <h3>Recent Patients</h3>
-                <button>
-                  Sea all <span class="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div class="card-body">
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <td>Patient</td>
-                      <td>Department</td>
-                      <td>Status</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fat</td>
-                      <td>OPD</td>
-                      <td><span class="status purple"></span>Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Dan</td>
-                      <td>OPD</td>
-                      <td><span class="status pink"></span>Very Sick</td>
-                    </tr>
-                    <tr>
-                      <td>Hajara</td>
-                      <td>OPD</td>
-                      <td><span class="status orange"></span>Treatment</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="attendees">
+                  <div class="">
+                    <h2>Class Attendees</h2>
+                    <button class="btn btn-sw">Refresh</button>
+                  </div>
+                  <table width="100%" style="overflow-x: scroll">
+                    <thead>
+                      <tr>
+                        <td>No.</td>
+                        <td>Name</td>
+                        <td>Reg. No</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td>Wekobosya Samuel</td>
+                        <td>19/U/0028/LCS</td>
+                      </tr>
+                      <tr>
+                        <td>1.</td>
+                        <td>Wekobosya Samuel</td>
+                        <td>19/U/0028/LCS</td>
+                      </tr>
+                      <tr>
+                        <td>1.</td>
+                        <td>Wekobosya Samuel</td>
+                        <td>19/U/0028/LCS</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="">
+                  <h2>No Active class</h2>
+                </div>
               </div>
             </div>
           </div>
