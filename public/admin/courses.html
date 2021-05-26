@@ -495,12 +495,7 @@
                 <h3>New Course</h3>
               </div>
               <div class="card-body">
-                <form
-                  action=""
-                  id="_newCourse"
-                  class="_new_course"
-                  autocomplete="off"
-                >
+                <form id="_newCourse" class="_new_course" autocomplete="off">
                   <div class="input-group">
                     <input
                       type="text"
@@ -547,5 +542,17 @@
         </div>
       </main>
     </div>
+    <script>
+      function _f(f) {
+        (function (url) {
+          f.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let _f = new fd(f);
+            console.log(_f);
+          });
+        })(f.url);
+      }
+      da();
+    </script>
   </body>
 </html>

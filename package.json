@@ -19,7 +19,8 @@
   "homepage": "https://github.com/XamuelUG/TheBeaconWeb#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "firebase-admin": "^9.8.0"
+    "firebase-admin": "^9.8.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
