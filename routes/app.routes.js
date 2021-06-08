@@ -60,4 +60,7 @@ router.post("/user/login", async (req, res) => {
   }
 });
 
+router.get('/admin/feed',(req,res)=>{
+
+})
 module.exports = router;

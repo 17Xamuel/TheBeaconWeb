@@ -7,12 +7,12 @@
     <title>Hello Beacon Project</title>
 
     <!--styling-->
-    <link rel="stylesheet" href="./design/main.css" />
+    <link rel="stylesheet" href="/design/main.css" />
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     />
-
+    <script src="../scripts/config.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
@@ -401,7 +401,7 @@
         <div class="sidebar-menu">
           <ul>
             <li>
-              <a href="/">
+              <a href="/admin/">
                 <span class="las la-igloo"></span>
                 <span>Dashboard</span>
               </a>
@@ -460,17 +460,17 @@
             <div class="card">
               <div class="card-header">
                 <h3>Start A Class</h3>
-                <button class="btn btn-sw">
-                  Assign<span class="las la-arrow-right"></span>
-                </button>
+                <div class="">
+                  <button class="btn btn-sw">
+                    Assign<span class="las la-arrow-right"></span>
+                  </button>
+                  <button class="btn btn-sw">
+                    Print<span class="las la-arrow-right"></span>
+                  </button>
+                </div>
               </div>
               <div class="card-body">
-                <form
-                  action=""
-                  id="_newClass"
-                  class="_new_class"
-                  autocomplete="off"
-                >
+                <form id="_newClass" class="_new_class" autocomplete="off">
                   <div class="input-group">
                     <input
                       type="text"
@@ -517,15 +517,18 @@
                     <label for="sub_topic"> Sub Topic </label>
                   </div>
                   <div class="btn-ctr">
-                    <button type="submit" class="btn">Start</button>
+                    <button type="submit" class="btn" id="btn_new_class">
+                      Start
+                    </button>
                   </div>
                 </form>
                 <div class="_qr-ctr">
                   <img
-                    src="./resources/airmax.jpg"
+                    src="/resources/airmax.jpg"
                     alt=""
                     height="95%"
                     width="95%"
+                    id="_has_qr"
                   />
                 </div>
               </div>
@@ -581,5 +584,17 @@
         </div>
       </main>
     </div>
+    <script>
+      const _fm = document.querySelector("#_newClass");
+      _fm.addEventListener("submit", async (e) => {
+        document.querySelector("#btn_new_class").innerHTML = "Creating Class";
+        e.preventDefault();
+        const res = await sbt(_fm, "/api/web/classes/new");
+        if (res.data == "Got") {
+          _fm.style.display = "none";
+          document.querySelector("#_has_qr").src = res.url;
+        }
+      });
+    </script>
   </body>
 </html>

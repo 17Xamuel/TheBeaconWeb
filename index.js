@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/app/", require("./routes/app.routes"));
+app.use("/api/web/", require("./routes/web.routes"));
 
 app.get("/api/new_course", (req, res) => {});
 
